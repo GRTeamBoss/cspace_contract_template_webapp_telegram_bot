@@ -1,0 +1,7 @@
+**/.env
+**/__pycache__/
+**/.pyc
+**/__cache__/
+**/global.env
+**/local.env
+**/test/
