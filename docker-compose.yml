@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: flask_cspace_contract_app
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=run.py
+      - FLASK_ENV=development
+      - POSTGRE_DBNAME=contract
+      - POSTGRE_USER=postgres
+      - POSTGRE_PASSWORD=postgres
+      - POSTGRE_PORT=5432
+      - POSTGRE_HOST=db
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=password
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: contract
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
