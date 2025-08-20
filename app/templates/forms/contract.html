@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Contract{% endblock %}
+
+{% block content %}
+<h2>Admin Contract</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.client.label }}<br>
+        {{ form.client }}<br>
+        {% for error in form.client.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.seller.label }}<br>
+        {{ form.seller }}<br>
+        {% for error in form.seller.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.date_from.label }}<br>
+        {{ form.date_from }}<br>
+        {% for error in form.date_from.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.date_to.label }}<br>
+        {{ form.date_to }}<br>
+        {% for error in form.date_to.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+{% endblock %}
