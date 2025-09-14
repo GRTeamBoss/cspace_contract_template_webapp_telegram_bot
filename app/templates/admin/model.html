@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <p><a href="{{ url_for('admin.admin_dashboard') }}">Dashboard</a></p>
   <h1>Admin Dashboard - {{ model }}</h1>
   <div id="model-table-dashboard"></div>
 {% endblock %}
